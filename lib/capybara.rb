@@ -15,7 +15,7 @@ module Capybara
   class InfiniteRedirectError < TimeoutError; end
   
   class << self
-    attr_accessor :debug, :asset_root, :app_host, :run_server, :default_host
+    attr_accessor :debug, :asset_root, :app_host, :run_server, :default_host, :remote_url
     attr_accessor :default_selector, :default_wait_time, :ignore_hidden_elements
 
     def default_selector
@@ -37,13 +37,14 @@ module Capybara
   autoload :Node,       'capybara/node'
   autoload :XPath,      'capybara/xpath'
   autoload :Searchable, 'capybara/searchable'
-  
+
   module Driver
     autoload :Base,     'capybara/driver/base'
     autoload :RackTest, 'capybara/driver/rack_test_driver'
     autoload :Celerity, 'capybara/driver/celerity_driver'
     autoload :Culerity, 'capybara/driver/culerity_driver'
     autoload :Selenium, 'capybara/driver/selenium_driver'
+		autoload :SeleniumRemote, 'capybara/driver/selenium_remote_driver'
   end
 end
 

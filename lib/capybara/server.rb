@@ -40,10 +40,10 @@ class Capybara::Server
   end
 
   def handler
-    begin
-      require 'rack/handler/thin'
-      Rack::Handler::Thin
-    rescue LoadError
+    #begin
+    #  require 'rack/handler/thin'
+    #  Rack::Handler::Thin
+    #rescue LoadError
       begin
         require 'rack/handler/mongrel'
         Rack::Handler::Mongrel
@@ -51,7 +51,7 @@ class Capybara::Server
         require 'rack/handler/webrick'
         Rack::Handler::WEBrick
       end
-    end
+    #end
   end
 
   def boot
