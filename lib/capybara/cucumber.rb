@@ -12,7 +12,7 @@ Before('@javascript') do
 end
 
 Before('@selenium') do
-  Capybara.current_driver = :selenium
+  Capybara.current_driver = :selenium_remote
 end
 
 Before('@celerity') do
