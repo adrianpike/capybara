@@ -285,6 +285,19 @@ examples. Just load the DSL and include it anywhere:
     end
     click_link 'Sign in'
 
+== Running on a Selenium Server
+
+Normally you'll run on a local Firefox session when you ask for Selenium, but what gets really fun is when you bounce it off to another computer, so it'll do all that fancy testing junk while you get back to real work.
+
+	Capybara.current_driver = :selenium_remote
+	Capybara.remote_url = 'http://192.168.0.16:4444/wd/hub'
+	Capybara.local_ip = "192.168.0.14"
+	
+It'll fire up a host on your local machine and send it off to a remote Selenium setup.
+
+Go here: http://code.google.com/p/selenium/
+Selenium-server is the JAR that you're looking for.
+
 == Calling remote servers
 
 Normally Capybara expects to be testing an in-process Rack application, but you can also use it to talk to a web server running anywhere on the internets, by setting app_host:
